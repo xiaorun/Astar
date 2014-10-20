@@ -2,10 +2,8 @@ package cn.edu.xiaorun;
 
 /*
  *版本：八数码v1.0
- *学校：厦门大学嘉庚学院07级 计算机科学与技术系 计算机班
- *开发组员：江伟坚，林昕，陈东虹，郑毅
- *指导老师：康凯
- *联系QQ：116411600  邮箱：kongwaigin@hotmail.com    cst07048@stu.xujc.com
+ *学校：北京工业大学 14级计算机 
+ *肖润
  */
  
 import java.util.*;
