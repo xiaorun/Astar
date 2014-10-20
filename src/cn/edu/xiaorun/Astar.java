@@ -8,11 +8,15 @@ import java.util.Vector;
 public class Astar {
 	static int  end[][] = new int [3][3]; 
 	static int[][]  start=new int[3][3];
+	
+	//main函数
 	public static void main(String[] args){
 		inputN();
 		Solve(start,end);
 		
 	}
+	
+	//用户输入
 	public static void inputN(){
 		String inputNum;
 		int k = 0;
@@ -60,19 +64,18 @@ public class Astar {
 					System.exit(0);
 				}					
 			}
-			
 			for(int i=0;i<9;i++){
 				int a =inputNum.charAt(i)-'0';
 				int l = i/3;
 				int r = i%3;
 				start[l][r] = a;
 			}
-			
+			System.out.println("输入的初始序列为！");
 			for(int i=0;i<3;i++)
 	     	{   	
 	     		for(int j=0;j<3;j++)
 	     		{
-	     			System.out.print(start[i][j]);
+	     			System.out.print(start[i][j]+" ");
 	     		}    		
 	     		System.out.println();
 	        }
@@ -82,6 +85,7 @@ public class Astar {
 		}
 	}
 	
+	//A*算法
 	public static boolean Solve(int [][]start,int [][]end)
 	{
 			Vector vc = new Vector(1,1);
@@ -95,32 +99,21 @@ public class Astar {
 	     	String space = " ";
 	     	
 	     	
-		
+//		检验算法是否有解		
 //		if(!judge_arr(start,end))
 //		{
 //			System.out.println("该起始状态无法到达目标状态");
 //			return false;
 //		}
-		
-			
+		     	
+	     	long   start1   =   System.currentTimeMillis(); //开始时间    
 	     	
-	     	
-
-	     	
-	     	long   start1   =   System.currentTimeMillis(); 
-	     	 
 	     	EightNumber en = new EightNumber();
-	     	
-	     	
-		   
-	     	     	
-	     	vc = en.process(start,end);
-	     	
-	     	
-	     	long   end1   =   System.currentTimeMillis();  
-	     	
-	     
-	     	
+	     		        	     	
+	     	vc = en.process(start,end);//Astar算法，返回解路径上的所有node
+	     	 	
+	     	long   end1   =   System.currentTimeMillis();  //结束时间
+	     	    	
 	     	for(int k=0;k<vc.size();k++)
 	     	{
 	     		System.out.println("=============");

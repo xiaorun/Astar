@@ -33,7 +33,7 @@ class Node
 	public  Node(int Id,int FatherId,int[][] arr,int f,int g,int h,long hash) 
 	{//结点参数包括这5个内容，做到的事情就是赋值
 	 	 this.Id=Id;
-		 this.FatherId=FatherId;
+		 this.FatherId=FatherId;//父节点ID
 		 
 		 for(int i=0;i<=2;i++)
 		 {
@@ -43,7 +43,7 @@ class Node
 		 
 		 this.f=f;
 		 this.g=g;
-		 this.h=h;
+		 this.h=h;//曼哈顿距离
 		 this.hash = hash;
 	}
 }
@@ -74,8 +74,8 @@ public  Vector process(int[][] Source,int[][] Dest)
       long start_hash =hashValue(Source);//开始节点的哈希值
       long end_hash =hashValue(Dest);//终点的哈希值
 
-      Node source=new Node(0,0,Source,0,0,0,0); //定义初始结点5个变量：ID，老爸，源数组，F权值,G深度,H不同于目标的个数
-      Node dest=new Node(0,0,Dest,0,0,0,0);
+      Node source=new Node(0,0,Source,0,0,0,start_hash); //定义初始结点5个变量：ID，老爸，源数组，F权值,G深度,H不同于目标的个数
+      Node dest=new Node(0,0,Dest,0,0,0,end_hash);
       
       source.h=caculatemove(source,dest);//计算起始到目标结点的不同个数
       source.f=source.g+source.h;//权值的计算
@@ -328,7 +328,7 @@ public void extend_node(Node current_node,Node des,int m,int n,int change_row,in
 	               current_deepth=current_deepth+1;//深度加1	               
 	               pnewnode.Id=current_deepth;
 	               pnewnode.g=current_node.g+1;
-	               pnewnode.h=caculatemove(pnewnode,des);
+	               pnewnode.h=caculatemove(pnewnode,des);//计算从pnewnode到des的曼哈顿距离
 	               pnewnode.f=pnewnode.g+pnewnode.h;
 	               pnewnode.hash = pnewnode_hash;
 	               open.add(pnewnode);
