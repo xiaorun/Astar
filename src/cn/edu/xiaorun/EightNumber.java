@@ -6,13 +6,8 @@ package cn.edu.xiaorun;
  *肖润
  */
  
-import java.util.*;
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
-import javax.swing.event.*;
-import java.lang.Math;
 import java.util.Random;
+import java.util.Vector;
 
 //=======================================================================================
 //         结点结构
@@ -477,10 +472,6 @@ public long hashValue(int [][]arr)
 	return hashvalue;
 		
 }
-    
-    
-     
-
 }
 
 
